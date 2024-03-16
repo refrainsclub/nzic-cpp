@@ -6,41 +6,45 @@ using namespace std;
 
 int main() {
   int n; // sums to be done
-  int s; // total lines
-  cin >> n >> s;
+  cin >> n;
 
-  int pence = 0;
+  for (int i = 0; i < n; i++) {
+    int s; // total lines
+    cin >> s;
 
-  for (int i = 0; i < s; i++) {
-    string ln;
-    cin >> ln;
+    int pence = 0;
+    for (int j = 0; j < s; j++) {
+      string ln;
+      cin >> ln;
 
-    // first char always #
-    ln = ln.substr(1);
+      // first char always #
+      ln = ln.substr(1);
 
-    vector<int> tokens;
-    string token;
-    stringstream ss(ln);
+      vector<int> tokens;
+      string token;
+      stringstream ss(ln);
 
-    while (getline(ss, token, '-')) {
-      tokens.push_back(stoi(token));
+      while (getline(ss, token, '-')) {
+        tokens.push_back(stoi(token));
+      }
+
+      int x = tokens[0];
+      int y = tokens[1];
+      int z = tokens[2];
+
+      pence += x * 240;
+      pence += y * 12;
+      pence += z;
     }
 
-    int x = tokens[0];
-    int y = tokens[1];
-    int z = tokens[2];
+    int pound = pence / 240;
+    pence %= 240;
 
-    pence += x * 240;
-    pence += y * 12;
-    pence += z;
+    int shilling = pence / 12;
+    pence %= 12;
+
+    cout << '#' << pound << '-' << shilling << '-' << pence << '\n';
   }
 
-  int pound = pence / 240;
-  pence %= 240;
-
-  int shilling = pence / 12;
-  pence %= 12;
-
-  cout << '#' << pound << '-' << shilling << '-' << pence << '\n';
   return 0;
 }
