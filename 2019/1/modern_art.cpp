@@ -1,5 +1,5 @@
 // most of this code was copied from solutions pdf
-// could do do the second part (with large canvas size)
+// could not do the second part (with large canvas size)
 // want to study and play, likely wont submit yet
 
 #include <algorithm>
