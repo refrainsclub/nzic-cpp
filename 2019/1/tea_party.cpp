@@ -1,45 +1,42 @@
 #include <iostream>
 #include <map>
 
-using namespace std;
-
 int main() {
-  int n;
-  int k;
-  map<char, int> favorites;
-  map<string, int> misses;
+  int n, k;
+  std::map<char, int> favorites;
 
-  cin >> n >> k;
+  std::map<std::string, int> misses;
+  std::cin >> n >> k;
 
   for (int i = 0; i < n; i++) {
-    string name;
+    std::string name;
     char favorite;
-    cin >> name >> favorite;
+    std::cin >> name >> favorite;
     favorites[favorite]++;
   }
 
   for (int i = 0; i < n; i++) {
-    string name;
-    cin >> name;
+    std::string name;
+    std::cin >> name;
 
-    for (char c : "GCEPLS"s) {
+    for (char c : (std::string) "GCEPLS") {
       int stock;
-      cin >> stock;
-      misses[name] += max(0, favorites[c] - stock);
+      std::cin >> stock;
+      misses[name] += std::max(0, favorites[c] - stock);
     }
   }
 
   for (int i = 0; i < k; i++) {
-    string name;
-    cin >> name;
-    cout << name << " ";
+    std::string name;
+    std::cin >> name;
+    std::cout << name << " ";
 
     if (misses[name] == 0) {
-      cout << "Successful" << endl;
+      std::cout << "Successful\n";
     } else if (misses[name] <= 2) {
-      cout << "Mildly Successful (" << misses[name] << ")" << endl;
+      std::cout << "Mildly Successful (" << misses[name] << ")\n";
     } else {
-      cout << "Disaster (" << misses[name] << ")" << endl;
+      std::cout << "Disaster (" << misses[name] << ")\n";
     }
   }
 
