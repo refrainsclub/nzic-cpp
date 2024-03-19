@@ -14,6 +14,6 @@ int main() {
     v = (c * tmp + d * v) % 10'000;
   }
 
-  std::cout << u % 10'000 << ' ' << v % 10'000 << '\n';
+  std::cout << u << ' ' << v << '\n';
   return 0;
 }
