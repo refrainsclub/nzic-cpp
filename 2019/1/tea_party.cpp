@@ -4,8 +4,8 @@
 int main() {
   int n, k;
   std::map<char, int> favorites;
-
   std::map<std::string, int> misses;
+
   std::cin >> n >> k;
 
   for (int i = 0; i < n; i++) {
